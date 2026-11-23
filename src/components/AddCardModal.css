@@ -1,0 +1,82 @@
+.addcard {
+  border: 0;
+  padding: 0;
+  border-radius: var(--radius-tile);
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+.addcard::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.addcard[open] { animation: addcard-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes addcard-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.addcard__panel { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.addcard__head { display: flex; justify-content: space-between; align-items: center; }
+.addcard__head h2 { font-size: 24px; font-weight: 600; }
+.addcard__close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--bg-alt);
+  color: var(--text-2);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.addcard__close:hover { background: var(--border); }
+
+.addcard__demo {
+  font-size: 13px;
+  color: var(--accent-link);
+  background: var(--accent-soft);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+.addcard__demo code { font-size: 12px; white-space: nowrap; }
+
+.addcard__preview {
+  aspect-ratio: 1.586;
+  border-radius: 14px;
+  padding: 18px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease;
+}
+.addcard__preview-brand { align-self: flex-end; font-weight: 600; font-size: 15px; }
+.addcard__preview-number { font-size: 20px; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+.addcard__preview-foot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+}
+
+
+.addcard__colors { border: 0; padding: 0; margin: 0; display: flex; gap: 10px; align-items: center; }
+.addcard__colors legend { font-size: 13px; color: var(--text-2); margin-bottom: 8px; padding: 0; }
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px var(--surface) inset;
+}
+.swatch.is-selected { border-color: var(--text); }
+
+.addcard__submit { width: 100%; margin-top: 4px; }

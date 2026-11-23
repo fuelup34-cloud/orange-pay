@@ -1,0 +1,42 @@
+.hero {
+  padding: 88px 0 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 60%, var(--bg-alt) 100%);
+}
+.hero__eyebrow { animation: fade-up 0.8s ease both; }
+.hero__title { animation: fade-up 0.9s ease 0.1s both; }
+.hero__sub { margin-top: 24px; animation: fade-up 0.9s ease 0.2s both; }
+.hero .cta-row { animation: fade-up 0.9s ease 0.3s both; }
+
+.hero__visual {
+  position: relative;
+  margin-top: 72px;
+  padding-bottom: 96px;
+  animation: fade-up 1.1s ease 0.35s both;
+}
+.hero__glow {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 720px;
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(244, 63, 94, 0.24), transparent);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 734px) {
+  .hero { padding-top: 56px; }
+  .hide-sm { display: none; }
+  .hero__visual { margin-top: 48px; padding-bottom: 64px; }
+  .hero__glow { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero *, .hero__visual { animation: none !important; }
+}
